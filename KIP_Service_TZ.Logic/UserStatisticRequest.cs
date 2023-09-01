@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace KIP_Service_TZ.Logic
 {
 
-	/// <summary>
+    /// <summary>
     /// Данные для запроса
     /// </summary>
 		
