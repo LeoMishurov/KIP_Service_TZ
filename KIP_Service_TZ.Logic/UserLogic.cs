@@ -17,7 +17,7 @@ namespace KIP_Service_TZ.Logic
             this.repositoryUser = repositoryUser;
         }
 
-		/// <summary>
+	/// <summary>
         /// Добавление пользователя
         /// </summary>
 		 
@@ -26,7 +26,7 @@ namespace KIP_Service_TZ.Logic
             return repositoryUser.AddUser(name);
         }
 
-		/// <summary>
+	/// <summary>
         /// Получение пользователя
         /// </summary>
 
