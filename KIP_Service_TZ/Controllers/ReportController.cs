@@ -18,12 +18,14 @@ namespace KIP_Service_TZ.Controllers
 			this.userLogic = userLogic;
         }
 
-		
+		/// <summary>
+        /// Добавление запроса
+        /// </summary>
 
         [HttpPost("user_statistics")]
         public ActionResult<Guid> AddQuery(UserStatisticRequest request)
         {
-			
+			// проверка на наличие пользователя
 			var user = userLogic.GetUser(request.UserId)
 
             if (user == null)
@@ -32,7 +34,9 @@ namespace KIP_Service_TZ.Controllers
             return queryLogic.AddQuery(request);
         }
 
-        
+        /// <summary>
+        /// Получение запроса
+        /// </summary>
 
         [HttpGet("info")]
         public ActionResult<ReportInfoResponse> GetQuery(Guid queryId)
