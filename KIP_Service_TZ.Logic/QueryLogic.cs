@@ -20,6 +20,10 @@ namespace KIP_Service_TZ.Logic
             this.reportOptions = reportOptions;
         }
 
+		/// <summary>
+        /// Создание запроса
+        /// </summary>
+
         public Guid AddQuery(UserStatisticRequest request) 
         {
             var query = repositoryQuery.AddQuery(new Query
@@ -32,20 +36,29 @@ namespace KIP_Service_TZ.Logic
             return query.Id; 
         }
 
+		/// <summary>
+        /// Получение отчета о времяни выполнения запроса 
+        /// </summary>
+		 
         public ReportInfoResponse GetReportInfo(Guid queryId)
         {
+			// Получаем запрос по Id
             Query query = repositoryQuery.GetQuery(queryId);
 
             if (query == null)
                 return null;
 
+			// Получаем время выполнения запроса
             long queryTime = (long)(DateTime.UtcNow - query.CreatedDate).TotalMilliseconds;
 
             ReportInfoResponse reportInfo = new ReportInfoResponse 
             { 
+				// Процент обработки запроса 
                 Precent = (int)Math.Min((double)queryTime / reportOptions.Value.RequestProcessingTime * 100, 100),
                 Query = query.Id
             };
+
+			// Если процент больше 100
             if (reportInfo.Precent == 100)
             {
                 reportInfo.Result = new ReportInfoResultResponse

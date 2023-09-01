@@ -7,7 +7,6 @@ namespace KIP_Service_TZ.Controllers
     [Route("[controller]")]
     public class ReportController : ControllerBase
     {
-
         private readonly ILogger<ReportController> _logger;
         private readonly QueryLogic queryLogic;
 
@@ -17,16 +16,25 @@ namespace KIP_Service_TZ.Controllers
             this.queryLogic = queryLogic;
         }
 
+		/// <summary>
+        /// Добавление запроса
+        /// </summary>
+
         [HttpPost("user_statistics")]
         public ActionResult<Guid> AddQuery(UserStatisticRequest request)
         {
             return queryLogic.AddQuery(request);
         }
 
+        /// <summary>
+        /// Получение запроса
+        /// </summary>
+
         [HttpGet("info")]
         public ActionResult<ReportInfoResponse> GetQuery(Guid queryId)
         {
             var result = queryLogic.GetReportInfo(queryId);
+
             if (result == null)
                 return BadRequest();
 

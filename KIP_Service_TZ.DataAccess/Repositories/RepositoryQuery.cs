@@ -14,6 +14,7 @@ namespace KIP_Service_TZ.DataAccess.Repositories
         /// <summary>
         /// Добавление запроса
         /// </summary>   
+		
         public Query AddQuery(Query query)
         {
             query.Id = Guid.NewGuid();
@@ -28,7 +29,7 @@ namespace KIP_Service_TZ.DataAccess.Repositories
         /// <summary>
         /// Получение запроса
         /// </summary>
-        /// <param name="id"></param>
+        
         public Query GetQuery(Guid id)
         {
            return myContext.Queries.FirstOrDefault(x => x.Id == id);

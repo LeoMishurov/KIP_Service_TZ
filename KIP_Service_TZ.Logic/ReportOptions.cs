@@ -8,6 +8,7 @@ namespace KIP_Service_TZ.Logic
 {
     public class ReportOptions
     {
+		// Время обработки отчета
         public int RequestProcessingTime { get; set; }
     }
 }

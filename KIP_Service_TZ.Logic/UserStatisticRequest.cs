@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace KIP_Service_TZ.Logic
 {
+
+	/// <summary>
+    /// Данные для запроса
+    /// </summary>
+		
     public class UserStatisticRequest
     {
         public DateTime DateFrom { get; set; }

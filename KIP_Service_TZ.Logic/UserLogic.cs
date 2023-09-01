@@ -17,10 +17,18 @@ namespace KIP_Service_TZ.Logic
             this.repositoryUser = repositoryUser;
         }
 
+		/// <summary>
+        /// Добавление пользователя
+        /// </summary>
+		 
         public User AddUser(string name)
         {
             return repositoryUser.AddUser(name);
         }
+
+		/// <summary>
+        /// Получение пользователя
+        /// </summary>
 
         public User GetUser(Guid id)
         {

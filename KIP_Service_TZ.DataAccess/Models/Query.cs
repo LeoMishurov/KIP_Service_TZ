@@ -16,6 +16,7 @@ namespace KIP_Service_TZ.DataAccess.Models
         public DateTime DateFrom { get; set;}
 
         public DateTime DateTo { get; set;}
+
         public Guid UserId { get; set; }
 
         // Сылка на User для EF

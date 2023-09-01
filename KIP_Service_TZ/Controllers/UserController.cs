@@ -8,11 +8,16 @@ namespace KIP_Service_TZ.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserLogic userLogic;
+
         public UserController(UserLogic userLogic)
         {
             this.userLogic = userLogic;
         }
 
+		/// <summary>
+        /// Добавление пользователя
+        /// </summary>
+		
         [HttpPost("Add")]
         public ActionResult<Guid> UserAdd(string name)
         {

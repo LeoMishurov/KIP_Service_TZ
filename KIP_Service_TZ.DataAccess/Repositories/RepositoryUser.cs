@@ -11,12 +11,9 @@ namespace KIP_Service_TZ.DataAccess.Repositories
             myContext = context;
         }
         /// <summary>
-        /// Добавление работника
+        /// Добавление пользоваетля
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="number"></param>
-        /// <param name="jobTitle"></param>
-        /// <param name="department"></param>
+        
         public User AddUser(string name)
         {
             User user = new User
@@ -35,7 +32,7 @@ namespace KIP_Service_TZ.DataAccess.Repositories
         /// <summary>
         /// Получение пользователя
         /// </summary>
-        /// <param name="id"></param>
+     
         public User GetUser(Guid id)
         {
            return myContext.Users.FirstOrDefault(x => x.Id == id);
