@@ -18,15 +18,15 @@ namespace KIP_Service_TZ.Controllers
 			this.userLogic = userLogic;
         }
 
-		/// <summary>
-        /// Добавление запроса
+	/// <summary>
+        /// Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РїСЂРѕСЃР°
         /// </summary>
 
         [HttpPost("user_statistics")]
         public ActionResult<Guid> AddQuery(UserStatisticRequest request)
         {
-			// Проверка на наличие пользователя
-			var user = userLogic.GetUser(request.UserId)
+	    // РџСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+	    var user = userLogic.GetUser(request.UserId)
 
             if (user == null)
             return BadRequest();
@@ -35,7 +35,7 @@ namespace KIP_Service_TZ.Controllers
         }
 
         /// <summary>
-        /// Получение запроса
+        /// РџРѕР»СѓС‡РµРЅРёРµ Р·Р°РїСЂРѕСЃР°
         /// </summary>
 
         [HttpGet("info")]
