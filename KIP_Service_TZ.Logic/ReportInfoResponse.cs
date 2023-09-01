@@ -2,7 +2,7 @@
 
 namespace KIP_Service_TZ.Logic
 {
-	/// <summary>
+    /// <summary>
     /// Информация об отчете
     /// </summary>
 	
@@ -13,7 +13,7 @@ namespace KIP_Service_TZ.Logic
         public ReportInfoResultResponse Result { get; set; }
     }
 
-	/// <summary>
+    /// <summary>
     /// Результат отчета
     /// </summary>
 		 
