@@ -25,7 +25,7 @@ namespace KIP_Service_TZ.Controllers
         [HttpPost("user_statistics")]
         public ActionResult<Guid> AddQuery(UserStatisticRequest request)
         {
-			// проверка на наличие пользователя
+			// Проверка на наличие пользователя
 			var user = userLogic.GetUser(request.UserId)
 
             if (user == null)
