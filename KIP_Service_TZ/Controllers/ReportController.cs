@@ -8,12 +8,14 @@ namespace KIP_Service_TZ.Controllers
     public class ReportController : ControllerBase
     {
         private readonly ILogger<ReportController> _logger;
+		private readonly UserLogic userLogic;
         private readonly QueryLogic queryLogic;
 
-        public ReportController(ILogger<ReportController> logger, QueryLogic queryLogic)
+        public ReportController(ILogger<ReportController> logger, UserLogic userLogic, QueryLogic queryLogic)
         {
             _logger = logger;
             this.queryLogic = queryLogic;
+			this.userLogic = userLogic;
         }
 
 		/// <summary>
@@ -23,6 +25,12 @@ namespace KIP_Service_TZ.Controllers
         [HttpPost("user_statistics")]
         public ActionResult<Guid> AddQuery(UserStatisticRequest request)
         {
+			// проверка на наличие пользователя
+			var user = userLogic.GetUser(request.UserId)
+
+            if (user == null)
+            return BadRequest();
+
             return queryLogic.AddQuery(request);
         }
 
@@ -36,7 +44,7 @@ namespace KIP_Service_TZ.Controllers
             var result = queryLogic.GetReportInfo(queryId);
 
             if (result == null)
-                return BadRequest();
+            return BadRequest();
 
             return result;
         }

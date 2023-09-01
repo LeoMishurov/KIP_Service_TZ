@@ -12,11 +12,13 @@ namespace KIP_Service_TZ.Logic
     public class QueryLogic
     {
         private readonly RepositoryQuery repositoryQuery;
+		private readonly RepositoryUser repositoryUser;
         private readonly IOptions<ReportOptions> reportOptions;
 
-        public QueryLogic(RepositoryQuery repositoryQuery, IOptions<ReportOptions> reportOptions)
+        public QueryLogic(RepositoryQuery repositoryQuery, RepositoryUser repositoryUser, IOptions<ReportOptions> reportOptions)
         {
             this.repositoryQuery = repositoryQuery;
+			this.repositoryUser = repositoryUser;
             this.reportOptions = reportOptions;
         }
 
@@ -26,6 +28,10 @@ namespace KIP_Service_TZ.Logic
 
         public Guid AddQuery(UserStatisticRequest request) 
         {
+
+			if (repositoryUser.GetUser(request.UserId) == null)
+				return null;
+
             var query = repositoryQuery.AddQuery(new Query
             {
                 CreatedDate = DateTime.UtcNow,
